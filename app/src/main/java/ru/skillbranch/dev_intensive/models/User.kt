@@ -1,8 +1,9 @@
 package ru.skillbranch.dev_intensive.models
 
+import ru.skillbranch.dev_intensive.utils.Utils
 import java.util.*
 
-class User (
+data class User (
     val id:String,
     var firstName:String?,
     var lastName:String?,
@@ -18,17 +19,15 @@ class User (
     constructor(id:String) : this (id, "John", "Doe")
 
     init {
-        println("It's Alive!!! \n${if(lastName === "Doe") "His name id $firstName $lastName" else "And his name is $firstName $lastName!!!"}\n")
+        println("It's Alive!!! \n${if(lastName === "Doe") "His name id $firstName $lastName" 
+                                    else "And his name is $firstName $lastName!!!"}\n")
     }
     companion object Factory {
         private var lastid :Int = -1
         fun makeUser(fullName:String?) : User {
             lastid++
 
-            val parts : List<String>? = fullName?.split(" ")
-
-            var firstName = parts?.getOrNull(0)
-            var lastName = parts?.getOrNull(1)
+            val (firstName, lastName) = Utils.parselFullName(fullName)
 
             return User(id= "$lastid", firstName = firstName, lastName = lastName)
         }
