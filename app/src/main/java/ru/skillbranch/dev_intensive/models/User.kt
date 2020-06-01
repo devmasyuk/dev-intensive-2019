@@ -4,7 +4,7 @@ import ru.skillbranch.dev_intensive.utils.Utils
 import java.util.*
 
 data class User (
-    val id:String?,
+    val id:String,
     var firstName:String?,
     var lastName:String?,
     var avatar:String?,
@@ -33,7 +33,7 @@ data class User (
         }
     }
     class  Builder{
-        var id: String? = null
+        var id: String = "0"
         var firstName: String? = null
         var lastName: String? = null
         var avatar:String? = null
