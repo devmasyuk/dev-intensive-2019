@@ -2,6 +2,7 @@ package ru.skillbranch.dev_intensive.extensions
 
 import java.util.*
 import kotlin.math.abs
+import java.text.SimpleDateFormat
 
 const val SECOND = 1000L
 const val MINUTE = 60* SECOND
@@ -9,7 +10,7 @@ const val HOUR = 60* MINUTE
 const val DAY = 24* HOUR
 
 fun Date.format(pattern: String="HH:mm:ss dd.MM.yy"):String{
-    val dateFormat = java.text.SimpleDateFormat(pattern, java.util.Locale("ru"))
+    val dateFormat = SimpleDateFormat(pattern, Locale("ru"))
     return dateFormat.format(this)
 }
 fun Date.add(value:Int, units: TimeUnits = TimeUnits.SECOND):Date{
