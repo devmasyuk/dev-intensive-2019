@@ -4,7 +4,7 @@ fun String.truncate(value: Int=16): String{
     val s: String = this
     return when{
         s.trim().length <= value -> s.trim()
-        s.trim().length > value -> "${s.take(value).trim()...}"
+        s.trim().length > value -> "${s.take(value).trim()}..."
         else -> ""
     }
 }
