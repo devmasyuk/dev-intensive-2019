@@ -36,7 +36,7 @@ object Utils {
         "ю" to "yu",
         "я" to "ya"
     )
-    fun parselFullName (fullName:String?):Pair<String?, String?>{
+    fun parseFullName (fullName:String?):Pair<String?, String?>{
 
         if (fullName != null && !fullName.isEmpty() ) {
 
