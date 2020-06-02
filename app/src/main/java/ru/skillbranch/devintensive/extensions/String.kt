@@ -8,6 +8,6 @@ fun String.truncate(value: Int=16): String{
         else -> ""
     }
 }
-fun String.stripHTML(): String{
+fun String.stripHtml(): String{
     return this.replace(Regex("&.+?;|<.+?>")," ")?.replace(Regex(" +"), " ").toString().trim()
 }
