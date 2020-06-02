@@ -1,4 +1,4 @@
-package ru.skillbranch.dev_intensive.extensions
+package ru.skillbranch.devintensive.extensions
 
 fun String.truncate(value: Int=16): String{
     val s: String = this

@@ -1,4 +1,4 @@
-package ru.skillbranch.dev_intensive.utils
+package ru.skillbranch.devintensive.utils
 
 object Utils {
     val mapTranslit = mapOf(
