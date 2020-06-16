@@ -9,5 +9,5 @@ fun String.truncate(value: Int=16): String{
     }
 }
 fun String.stripHtml(): String{
-    return this.replace(Regex("&.+?;|<.+?>")," ")?.replace(Regex(" +"), " ").toString().trim()
+    return this.replace(Regex("&.+?;|<.+?>")," ").replace(Regex(" +"), " ").toString().trim()
 }

@@ -26,7 +26,7 @@ fun Date.add(value:Int, units: TimeUnits = TimeUnits.SECOND):Date{
     return this
 }
 
-public fun Date.humanizeDiff(date:Date = Date()) : String{
+fun Date.humanizeDiff(date:Date = Date()) : String{
     val status : String
     var diffData = date.time - this.time
     val negativeNumber = diffData < 0

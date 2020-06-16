@@ -40,7 +40,7 @@ object Utils {
 
         if (fullName != null && !fullName.isEmpty() ) {
 
-            val parts: List<String>? = fullName?.split(" ")
+            val parts: List<String>? = fullName.split(" ")
 
             var firstName = parts?.getOrNull(0)
             var lastName = parts?.getOrNull(1)
