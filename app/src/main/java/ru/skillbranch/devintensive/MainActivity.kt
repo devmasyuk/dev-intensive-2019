@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
+import ru.skillbranch.devintensive.extensions.hideKeyboard
 import ru.skillbranch.devintensive.models.Bender
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -24,7 +25,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.d("M_MainActivity","onCreate ")
 
 //        benderImage = findViewById(R.id.iv_bender)
         benderImage = iv_bender
@@ -34,12 +34,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val status = savedInstanceState?.getString("STATUS") ?: Bender.Status.NORMAL.name
         val question = savedInstanceState?.getString("QUESTION") ?: Bender.Question.NAME.name
-        benderObj = Bender(Bender.Status.valueOf(status), Bender.Question.valueOf(status))
+        benderObj = Bender(Bender.Status.valueOf(status), Bender.Question.valueOf(question))
+
+         Log.d("M_MainActivity","onCreate $status $question")
+        var (r,g,b) = benderObj.status.color
+        benderImage.setColorFilter(Color.rgb(r,g,b), PorterDuff.Mode.MULTIPLY)
 
         textTxt.text = benderObj.askQuestion()
         sendBtn.setOnClickListener(this)
     }
- 
+
     override fun onRestart() {
         super.onRestart()
         Log.d("M_MainActivity","onRestart ")
@@ -85,6 +89,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             val (r,g,b) = color
             benderImage.setColorFilter(Color.rgb(r,g,b), PorterDuff.Mode.MULTIPLY)
             textTxt.text = phase
+            hideKeyboard()
         }
     }
 }
